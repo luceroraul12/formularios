@@ -34,7 +34,11 @@
                     ngModel
                     name="precio"
                     required
+                    min="0"
                     >
+                    <span class="form-text text-danger"
+                    *ngIf="esPrecioValido()"
+                    >debe ser positivo</span>
                 </div>
             </div>
             <div class="mb-3 row">
