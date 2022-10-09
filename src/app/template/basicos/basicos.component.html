@@ -20,7 +20,7 @@
                     minlength="3"
                     >
                     <span class="form-text text-danger"
-                    *ngIf="miFormulario.controls['producto'].invalid && miFormulario.controls['producto'].touched"
+                    *ngIf="esProductoValido()"
                     >Debe contener 3 letras</span>
                 </div>
             </div>
