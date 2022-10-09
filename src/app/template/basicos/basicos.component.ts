@@ -18,8 +18,9 @@ export class BasicosComponent implements OnInit {
 
 
 
-  guardar(miFormulario: NgForm){ 
-    console.log(miFormulario.value);
+  guardar(): void{ 
+    console.log(this.miFormulario.value);
+    this.miFormulario.resetForm();
   }
 
   esProductoValido(): boolean{
