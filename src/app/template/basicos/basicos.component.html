@@ -50,11 +50,20 @@
                     placeholder="Existencias del producto" 
                     ngModel
                     name="existencias"
+                    customMin
+                    [minimo]="0"
                     required
                     >
+                    <span class="form-text text-danger"
+                    *ngIf="esExistenciaValida()"
+                    >debe ser positivo</span>
                 </div>
             </div>
-            Z
+            <button 
+            type="submit" 
+            class="btn btn-success float-end"
+            [disabled]="miFormulario.invalid"
+            >cargar</button>
         </form>
     </div>
     <div class="row">

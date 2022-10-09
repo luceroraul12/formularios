@@ -3,7 +3,7 @@ import { FormControl, NG_VALIDATORS, Validator } from "@angular/forms";
 
 
 @Directive({
-    selector: '[customMin][ngModel',
+    selector: '[customMin][ngModel]',
     providers: [{
         provide: NG_VALIDATORS,
         useExisting: CustomMinDirective,
