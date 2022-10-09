@@ -7,6 +7,7 @@ import { SwitchesComponent } from './switches/switches.component';
 const routes: Routes = [
   {
     path: '',
+    component: BasicosComponent,
     children: [
       {
         path: 'basicos', component: BasicosComponent
