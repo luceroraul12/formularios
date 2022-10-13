@@ -32,6 +32,8 @@ export class DinamicosComponent implements OnInit {
     ]
   }
 
+  public nombreJuego: string = "";
+
   // para crear inputs dinamico, hay que crear interfaces, y la encargada del input dinamico(ngfor) debe ser un arreglo y que cada uno tenga name diferente ejemplo variabl_concatenacion
   constructor() { }
 
@@ -39,11 +41,24 @@ export class DinamicosComponent implements OnInit {
   }
 
   guardar(): void{
-    alert('formulario cargado')
+    console.log("formulario cargado");
+    
   }
 
   agregarJuego(){
-    this.persona.juegosFavoritos.push()
+    console.log("juego agregado");
+    
+    let juego: Juego = {
+      id: this.persona.juegosFavoritos.length+1,
+      nombre: this.nombreJuego}
+    this.persona.juegosFavoritos.push(juego);
+    this.nombreJuego = "";
+  }
+
+  eliminarJuego(indiceJuego: number){
+    console.log("juego eliminado");
+    
+    this.persona.juegosFavoritos.splice(indiceJuego,1);
   }
 
 }

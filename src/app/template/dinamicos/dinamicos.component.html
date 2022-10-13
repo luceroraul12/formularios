@@ -14,7 +14,7 @@
             required
             >
             <span class="form-text text-danger"
-                    *ngIf="formulario.controls['nombre'].invalid && formulario.touched"
+                    *ngIf="formulario.controls['nombre']?.invalid && formulario.touched && formulario.controls['nombre'].touched"
                     >Debe introducir nombre</span>
         </div>
     </div>
@@ -28,11 +28,13 @@
                 class="form-control" 
                 ngModel
                 name="juego"
+                [(ngModel)]="nombreJuego"
                 required
                 placeholder="Nombre de juego" 
                 aria-label="Nombre de juego" 
-                aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" type="button">Agregar</button>
+                aria-describedby="button-addon2"
+                (keyup.enter)="agregarJuego()">
+                <button class="btn btn-outline-secondary" type="button" (click)="agregarJuego()" >Agregar</button>
             </div>
         </div>
     </div>
@@ -40,19 +42,21 @@
     <div class="mb-3 row">
         <label class="col-form-label col-sm-3">Juegos agregados</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control mb-1"
-            *ngFor="let juego of persona.juegosFavoritos; let i = index"
-            name="juego_{{ i }}"
-            [ngModel]="juego.nombre"
-            required
-            >
+            <div class="input-group mb-1" *ngFor="let juego of persona.juegosFavoritos; let i = index">
+                <input type="text" class="form-control"
+                name="juego_{{ i }}"
+                [ngModel]="juego.nombre"
+                required
+                >
+                <button class="btn btn-outline-danger" type="button" (click)="eliminarJuego(i)">Eliminar</button>
+            </div>
         </div>
     </div>
     
     <div class="mb-3 row">
         <div class="col-sm-12">
             <button 
-            type="button"
+            type="submit"
             class="btn btn-primary float-end"
             (click)="guardar()"
             [disabled]="formulario.invalid"
