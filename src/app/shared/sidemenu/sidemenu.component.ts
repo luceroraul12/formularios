@@ -11,6 +11,11 @@ interface menuItem {
   selector: 'app-sidemenu',
   templateUrl: './sidemenu.component.html',
   styles: [
+    `
+      li{
+        cursor: pointer
+      }
+    `
   ]
 })
 export class SidemenuComponent{
