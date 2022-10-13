@@ -18,6 +18,36 @@
                     >Debe introducir nombre</span>
         </div>
     </div>
+    <!-- TODO: se cebe colocar inputs que se generen de manera dinamica -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Juego Favorito</label>
+        <div class="col-sm-9">
+            <div class="input-group mb-3">
+                <input 
+                type="text"
+                class="form-control" 
+                ngModel
+                name="juego"
+                required
+                placeholder="Nombre de juego" 
+                aria-label="Nombre de juego" 
+                aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label class="col-form-label col-sm-3">Juegos agregados</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control mb-1"
+            *ngFor="let juego of persona.juegosFavoritos; let i = index"
+            name="juego_{{ i }}"
+            [ngModel]="juego.nombre"
+            required
+            >
+        </div>
+    </div>
     
     <div class="mb-3 row">
         <div class="col-sm-12">
