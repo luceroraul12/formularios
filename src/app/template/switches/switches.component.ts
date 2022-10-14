@@ -8,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SwitchesComponent implements OnInit {
 
+  public objetoFormulario = {
+    genero: "",
+    notificaciones: false,
+    terminosyCondiciones: false
+  }
+
   constructor() { }
 
   ngOnInit(): void {
